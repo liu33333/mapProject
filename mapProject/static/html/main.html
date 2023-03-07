@@ -40,23 +40,6 @@
             <div id="combine_0" class="ax_default" data-left="0" data-top="0" data-width="1080" data-height="810"
                  layer-opacity="1">
 
-                {#                <!-- 底栏 (矩形) -->#}
-                {#                <div id="rectangle_0" style="top:722px; width: 1080px;height:88px;display: flex" class="ax_default">#}
-                {#                    <div id="rectangle_0_div" style="display: none"></div>#}
-                {#                    <div id="rectangle_0_text" class="text " style="display:none; visibility: hidden">#}
-                {#                        <p></p>#}
-                {#                    </div>#}
-                {#                </div>#}
-                {##}
-                {#                <!-- 底栏 (矩形) -->#}
-                {#                <div id="rectangle_0" style="display: flex" class="ax_default">#}
-                {#                    <div id="rectangle_0_div"#}
-                {#                         style="background-color:rgba(0, 26, 37, 1);height: 80px;width: 1080px;visibility: hidden "#}
-                {#                         class="">#}
-                {#                    </div>#}
-                {#                </div>#}
-                {#            </div>#}
-
                 <!-- Unnamed (矩形) -->
                 <div id="rectangle_0" style="top: 722px;width: 1080px;height: 88px;left: 0px;display: flex"
                      class="ax_default">
@@ -80,14 +63,6 @@
             <img id="image_0_img" class="img " src="../images/index/u1.png"/>
         </div>
 
-        <!-- Unnamed (矩形) -->
-        <div id="rectangle_1" class="ax_default _段落">
-            <div id="rectangle_1_div" class=""></div>
-            <div id="rectangle_1_text" class="text ">
-                <p><span id="date">日期</span></p>
-            </div>
-        </div>
-
         <!-- Unnamed (热区) -->
         <div id="transparent_0" class="ax_default" onclick="toggle()">
         </div>
@@ -104,11 +79,20 @@
                 }
             }
         </script>
-        <!-- Unnamed (矩形) -->
+
+        <!-- 日期 (矩形) -->
+        <div id="rectangle_1" class="ax_default _段落">
+            <div id="rectangle_1_div" class=""></div>
+            <div id="rectangle_1_text" class="text ">
+                <p><span id="date"></span></p>
+            </div>
+        </div>
+
+        <!-- 时间 (矩形) -->
         <div id="rectangle_1" style="left: 637px;top: 739px;height: 60px;width: 237px" class="ax_default _段落">
             <div id="rectangle_1_div" class=""></div>
             <div id="rectangle_1_text" class="text ">
-                <p><span id="time">时间</span></p>
+                <p><span id="time"></span></p>
             </div>
         </div>
         <script>
@@ -184,191 +168,188 @@
 
 
         <!-- 任务清单按钮 (热区) -->
-        <div id="transparent_0" style="top: 141px;left: 574px;width: 303px;height: 132px;" class="ax_default" onclick="jump('mission')">
+        <div id="transparent_0" style="top: 141px;left: 574px;width: 303px;height: 132px;" class="ax_default"
+             onclick="jump('mission')">
         </div>
 
         <!-- 消息中心按钮 (热区) -->
-        <div id="transparent_0" style="top: 305px;left: 574px;width: 303px;height: 132px" class="ax_default" onclick="jump('notice')">
+        <div id="transparent_0" style="top: 305px;left: 574px;width: 303px;height: 132px" class="ax_default"
+             onclick="jump('notice')">
         </div>
 
         <!-- 个人信息按钮 (热区) -->
-        <div id="transparent_0" style="top: 469px;left: 574px;width: 303px;height: 132px" class="ax_default" onclick="jump('userinfo')">
+        <div id="transparent_0" style="top: 469px;left: 574px;width: 303px;height: 132px" class="ax_default"
+             onclick="jump('userinfo')">
         </div>
 
         <!-- Unnamed (组合) -->
         <div id="combine_0" class="ax_default" data-left="0" data-top="0" data-width="0" data-height="0"
              layer-opacity="1">
 
-            <!-- Unnamed (组合) -->
-            <div id="combine_0" class="ax_default" data-left="0" data-top="0" data-width="0" data-height="0"
-                 layer-opacity="1">
+            <!-- 设置栏 (组合) -->
+            <div id="combine_1" class="ax_default ax_default_hidden"
+                 data-left="312"
+                 data-top="91" data-width="456" data-height="561" layer-opacity="1">
 
-                <!-- 设置栏 (组合) -->
-                <div id="combine_1" class="ax_default ax_default_hidden"
-                     data-left="312"
-                     data-top="91" data-width="456" data-height="561" layer-opacity="1">
-
-                    <!-- Unnamed (矩形) -->
-                    <div id="rectangle_2" class="ax_default box_1 selected">
-                        <div id="rectangle_2_div" class="selected"></div>
-                        <div id="rectangle_2_text" class="text " style="display:none; visibility: hidden">
-                            <p></p>
-                        </div>
-                    </div>
-
-                    <!-- Unnamed (形状) -->
-                    <div id="shape_2" class="ax_default icon selected">
-                        <img id="shape_2_img" class="img " src="../images/qrcode/u16.svg"/>
-                        <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
-                            <p></p>
-                        </div>
-                    </div>
-
-                    <!-- Unnamed (形状) -->
-                    <div id="shape_2" style="height: 43px;width: 50px;top: 139px;left: 374px"
-                         class="ax_default icon selected">
-                        <img id="shape_2_img" style="width: 50px;height: 43px" class="img "
-                             src="../images/qrcode/u17.svg"/>
-                        <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
-                            <p></p>
-                        </div>
-                    </div>
-
-                    <!-- Unnamed (形状) -->
-                    <div id="shape_2" style="height: 41px;width: 50px;top: 324px;left: 374px"
-                         class="ax_default icon selected">
-                        <img id="shape_2_img" style="width: 50px;height: 41px" class="img "
-                             src="../images/qrcode/u18.svg"/>
-                        <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
-                            <p></p>
-                        </div>
-                    </div>
-
-                    <!-- Unnamed (形状) -->
-                    <div id="shape_2" style="left: 374px;top: 417px;width: 50px;height: 50px"
-                         class="ax_default icon selected">
-                        <img id="shape_2_img" style="width: 50px" class="img " src="../images/qrcode/u19.svg"/>
-                        <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
-                            <p></p>
-                        </div>
-                    </div>
-
-                    <!-- Unnamed (矩形) -->
-                    <div id="rectangle_3" class="ax_default _段落 selected">
-                        <div id="rectangle_3_div" class="selected"></div>
-                        <div id="rectangle_3_text" class="text ">
-                            <p><span>移动网络</span></p>
-                        </div>
-                    </div>
-
-                    <!-- Unnamed (矩形) -->
-                    <div id="rectangle_3" style="left: 347px;top: 283px" class="ax_default _段落 selected">
-                        <div id="rectangle_3_div" class="selected"></div>
-                        <div id="rectangle_3_text" class="text ">
-                            <p><span>蓝牙</span></p>
-                        </div>
-                    </div>
-
-                    <!-- Unnamed (矩形) -->
-                    <div id="rectangle_3" style="left: 352px;top: 372px" class="ax_default _段落 selected">
-                        <div id="rectangle_3_div" class="selected"></div>
-                        <div id="rectangle_3_text" class="text ">
-                            <p><span>车辆识别码</span></p>
-                        </div>
-                    </div>
-
-                    <!-- Unnamed (矩形) -->
-                    <div id="rectangle_3" style="top: 477px" class="ax_default _段落 selected">
-                        <div id="rectangle_3_div" class="selected"></div>
-                        <div id="rectangle_3_text" class="text ">
-                            <p><span>色彩模式</span></p>
-                        </div>
-                    </div>
-
-                    <!-- Unnamed (矩形) -->
-                    <div id="rectangle_3" style="left: 554px;top: 156px" class="ax_default _段落 selected">
-                        <div id="rectangle_3_div" class="selected"></div>
-                        <div id="rectangle_3_text" class="text ">
-                            <p><span>网络已连接</span></p>
-                        </div>
-                    </div>
-
-                    <!-- Unnamed (矩形) -->
-                    <div id="rectangle_3" style="left: 554px;top: 182px;font-size: 14px"
-                         class="ax_default _段落 selected">
-                        <div id="rectangle_3_div" class="selected"></div>
-                        <div id="rectangle_3_text" class="text ">
-                            <p><span>延迟：0.00ms</span></p>
-                        </div>
-                    </div>
-
-                    <!-- Unnamed (下拉框) -->
-                    <div id="droplet_0" class="ax_default droplist selected">
-                        <img id="droplet_0_img" class="img " src="../images/qrcode/u26.svg"/>
-                        <select id="droplet_0_input" class="droplet_input">
-                            <option class="droplet_input_option" selected value="未选择">未选择</option>
-                            <option class="droplet_input_option" value="蓝牙1">蓝牙1</option>
-                            <option class="droplet_input_option" value="蓝牙2">蓝牙2</option>
-                        </select>
-                    </div>
-
-                    <!-- Unnamed (矩形) -->
-                    <div id="rectangle_3" style="left: 554px;top: 345px" class="ax_default _段落 selected">
-                        <div id="rectangle_3_div" class="selected"></div>
-                        <div id="rectangle_3_text" class="text ">
-                            <p><span>JF22-001</span></p>
-                        </div>
-                    </div>
-
-                    {#                <!-- Unnamed (下拉框) -->#}
-                    {#                <div id="droplet_0" style="left: 516px;top: 432px" class="ax_default droplist selected">#}
-                    {#                    <img id="droplet_0_img" class="img " src="../images/qrcode/u26.svg"/>#}
-                    {#                    <select id="droplet_0_input" class="droplet_input">#}
-                    {#                        <option class="droplet_input_option" selected value="明亮模式">明亮模式</option>#}
-                    {#                        <option class="droplet_input_option" value="黑夜模式">黑夜模式</option>#}
-                    {#                    </select>#}
-                    {#                </div>#}
-
-                    <!-- Unnamed (矩形) -->
-                    <div id="rectangle_3" style="top: 569px;" class="ax_default _段落 selected">
-                        <div id="rectangle_3_div" class="selected"></div>
-                        <div id="rectangle_3_text" class="text ">
-                            <p><span>登录用户</span></p>
-                        </div>
-                    </div>
-
-                    <!-- Unnamed (形状) -->
-                    <div id="shape_2" style="left: 374px;top: 514px;width: 50px;height: 50px"
-                         class="ax_default icon selected">
-                        <img id="shape_2_img" style="width: 50px" class="img " src="../images/main/u70.svg"/>
-                        <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
-                            <p></p>
-                        </div>
-                    </div>
-
-                    <!-- Unnamed (矩形) -->
-                    <div id="rectangle_3" style="left: 554px;top: 538px;" class="ax_default _段落 selected">
-                        <div id="rectangle_3_div" class="selected"></div>
-                        <div id="rectangle_3_text" class="text ">
-                            <p><span>用户123</span></p>
-                            <p><span><br></span></p>
-                        </div>
-                    </div>
-
-                    <!-- Unnamed (形状) -->
-                    <div id="shape_2" style="left: 713px;top: 608px;height: 37px;width: 37px"
-                         class="ax_default icon selected">
-                        <img id="shape_2_img" style="height: 37px;width: 37px" class="img "
-                             src="../images/main/u72.svg"/>
-                        <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
-                            <p></p>
-                        </div>
-                    </div>
-
-                    <!-- Unnamed (热区) -->
-                    <div id="transparent_0" style="left: 695px;top: 595px;width: 73px;height: 57px" class="ax_default">
+                <!-- Unnamed (矩形) -->
+                <div id="rectangle_2" class="ax_default box_1 selected">
+                    <div id="rectangle_2_div" class="selected"></div>
+                    <div id="rectangle_2_text" class="text " style="display:none; visibility: hidden">
+                        <p></p>
                     </div>
                 </div>
+
+                <!-- Unnamed (形状) -->
+                <div id="shape_2" class="ax_default icon selected">
+                    <img id="shape_2_img" class="img " src="../images/qrcode/u16.svg"/>
+                    <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
+                        <p></p>
+                    </div>
+                </div>
+
+                <!-- Unnamed (形状) -->
+                <div id="shape_2" style="height: 43px;width: 50px;top: 139px;left: 374px"
+                     class="ax_default icon selected">
+                    <img id="shape_2_img" style="width: 50px;height: 43px" class="img "
+                         src="../images/qrcode/u17.svg"/>
+                    <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
+                        <p></p>
+                    </div>
+                </div>
+
+                <!-- Unnamed (形状) -->
+                <div id="shape_2" style="height: 41px;width: 50px;top: 324px;left: 374px"
+                     class="ax_default icon selected">
+                    <img id="shape_2_img" style="width: 50px;height: 41px" class="img "
+                         src="../images/qrcode/u18.svg"/>
+                    <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
+                        <p></p>
+                    </div>
+                </div>
+
+                <!-- Unnamed (形状) -->
+                <div id="shape_2" style="left: 374px;top: 417px;width: 50px;height: 50px"
+                     class="ax_default icon selected">
+                    <img id="shape_2_img" style="width: 50px" class="img " src="../images/qrcode/u19.svg"/>
+                    <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
+                        <p></p>
+                    </div>
+                </div>
+
+                <!-- Unnamed (矩形) -->
+                <div id="rectangle_3" class="ax_default _段落 selected">
+                    <div id="rectangle_3_div" class="selected"></div>
+                    <div id="rectangle_3_text" class="text ">
+                        <p><span>移动网络</span></p>
+                    </div>
+                </div>
+
+                <!-- Unnamed (矩形) -->
+                <div id="rectangle_3" style="left: 347px;top: 283px" class="ax_default _段落 selected">
+                    <div id="rectangle_3_div" class="selected"></div>
+                    <div id="rectangle_3_text" class="text ">
+                        <p><span>蓝牙</span></p>
+                    </div>
+                </div>
+
+                <!-- Unnamed (矩形) -->
+                <div id="rectangle_3" style="left: 352px;top: 372px" class="ax_default _段落 selected">
+                    <div id="rectangle_3_div" class="selected"></div>
+                    <div id="rectangle_3_text" class="text ">
+                        <p><span>车辆识别码</span></p>
+                    </div>
+                </div>
+
+                <!-- Unnamed (矩形) -->
+                <div id="rectangle_3" style="top: 477px" class="ax_default _段落 selected">
+                    <div id="rectangle_3_div" class="selected"></div>
+                    <div id="rectangle_3_text" class="text ">
+                        <p><span>色彩模式</span></p>
+                    </div>
+                </div>
+
+                <!-- Unnamed (矩形) -->
+                <div id="rectangle_3" style="left: 554px;top: 156px" class="ax_default _段落 selected">
+                    <div id="rectangle_3_div" class="selected"></div>
+                    <div id="rectangle_3_text" class="text ">
+                        <p><span>网络已连接</span></p>
+                    </div>
+                </div>
+
+                <!-- Unnamed (矩形) -->
+                <div id="rectangle_3" style="left: 554px;top: 182px;font-size: 14px"
+                     class="ax_default _段落 selected">
+                    <div id="rectangle_3_div" class="selected"></div>
+                    <div id="rectangle_3_text" class="text ">
+                        <p><span>延迟：0.00ms</span></p>
+                    </div>
+                </div>
+
+                <!-- Unnamed (下拉框) -->
+                <div id="droplet_0" class="ax_default droplist selected">
+                    <img id="droplet_0_img" class="img " src="../images/qrcode/u26.svg"/>
+                    <select id="droplet_0_input" class="droplet_input">
+                        <option class="droplet_input_option" selected value="未选择">未选择</option>
+                        <option class="droplet_input_option" value="蓝牙1">蓝牙1</option>
+                        <option class="droplet_input_option" value="蓝牙2">蓝牙2</option>
+                    </select>
+                </div>
+
+                <!-- Unnamed (矩形) -->
+                <div id="rectangle_3" style="left: 554px;top: 345px" class="ax_default _段落 selected">
+                    <div id="rectangle_3_div" class="selected"></div>
+                    <div id="rectangle_3_text" class="text ">
+                        <p><span>JF22-001</span></p>
+                    </div>
+                </div>
+
+                {#                <!-- Unnamed (下拉框) -->#}
+                {#                <div id="droplet_0" style="left: 516px;top: 432px" class="ax_default droplist selected">#}
+                {#                    <img id="droplet_0_img" class="img " src="../images/qrcode/u26.svg"/>#}
+                {#                    <select id="droplet_0_input" class="droplet_input">#}
+                {#                        <option class="droplet_input_option" selected value="明亮模式">明亮模式</option>#}
+                {#                        <option class="droplet_input_option" value="黑夜模式">黑夜模式</option>#}
+                {#                    </select>#}
+                {#                </div>#}
+
+                <!-- Unnamed (矩形) -->
+                <div id="rectangle_3" style="top: 569px;" class="ax_default _段落 selected">
+                    <div id="rectangle_3_div" class="selected"></div>
+                    <div id="rectangle_3_text" class="text ">
+                        <p><span>登录用户</span></p>
+                    </div>
+                </div>
+
+                <!-- Unnamed (形状) -->
+                <div id="shape_2" style="left: 374px;top: 514px;width: 50px;height: 50px"
+                     class="ax_default icon selected">
+                    <img id="shape_2_img" style="width: 50px" class="img " src="../images/main/u70.svg"/>
+                    <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
+                        <p></p>
+                    </div>
+                </div>
+
+                <!-- Unnamed (矩形) -->
+                <div id="rectangle_3" style="left: 554px;top: 538px;" class="ax_default _段落 selected">
+                    <div id="rectangle_3_div" class="selected"></div>
+                    <div id="rectangle_3_text" class="text ">
+                        <p><span>用户123</span></p>
+                        <p><span><br></span></p>
+                    </div>
+                </div>
+
+                <!-- Logout (形状) -->
+                <div id="shape_2" style="left: 713px;top: 608px;height: 37px;width: 37px"
+                     class="ax_default icon selected">
+                    <img id="shape_2_img" style="height: 37px;width: 37px" class="img" src="../images/main/u72.svg"/>
+                </div>
+
+
+                <!-- Logout (热区) -->
+                <div id="transparent_0" style="left: 695px;top: 595px;width: 73px;height: 57px"
+                     class="ax_default logout">
+                </div>
+                <script type="text/javascript" src="../js/logout.js"></script>
             </div>
         </div>
     </div>
