@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-    <link href="../css/styles.css" type="text/css" rel="stylesheet">
-    <link href="../css/page.css" type="text/css" rel="stylesheet">
-    <title>notice</title>
+    <link href="{% static 'css/styles.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'css/page.css' %}" type="text/css" rel="stylesheet">
+    <title>map</title>
 </head>
 <body>
 <div id="base" class="">
@@ -44,22 +45,22 @@
 
     <!-- Home (形状) -->
     <div id="shape_0" class="ax_default icon">
-        <img id="shape_0_img" class="img " src="../images/main/u38.svg" onclick="home()"/>
+        <img id="shape_0_img" class="img " src="{% static '/images/main/u38.svg' %}" onclick="home()"/>
     </div>
     <script>
-        function home(){
+        function home() {
             window.location.replace("main.html");
         }
     </script>
 
     <!-- Setting (形状) -->
     <div id="shape_1" class="ax_default icon">
-        <img id="shape_1_img" class="img " src="../images/qrcode/u12.svg"/>
+        <img id="shape_1_img" class="img " src="{% static '/images/qrcode/u12.svg' %}"/>
     </div>
 
     <!-- Logo (图片) -->
     <div id="image_0" class="ax_default _图片">
-        <img id="image_0_img" class="img " src="../images/index/u1.png"/>
+        <img id="image_0_img" class="img " src="{% static '/images/index/u1.png' %}"/>
     </div>
     <!-- Unnamed (热区) -->
     <div id="transparent_0" class="ax_default" onclick="toggle()">
@@ -135,7 +136,7 @@
 
             <!-- Unnamed (形状) -->
             <div id="shape_2" class="ax_default icon selected">
-                <img id="shape_2_img" class="img " src="../images/qrcode/u16.svg"/>
+                <img id="shape_2_img" class="img " src="{% static '/images/qrcode/u16.svg' %}"/>
                 <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
                     <p></p>
                 </div>
@@ -145,7 +146,7 @@
             <div id="shape_2" style="height: 43px;width: 50px;top: 139px;left: 374px"
                  class="ax_default icon selected">
                 <img id="shape_2_img" style="width: 50px;height: 43px" class="img "
-                     src="../images/qrcode/u17.svg"/>
+                     src="{% static '/images/qrcode/u17.svg' %}"/>
                 <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
                     <p></p>
                 </div>
@@ -155,7 +156,7 @@
             <div id="shape_2" style="height: 41px;width: 50px;top: 324px;left: 374px"
                  class="ax_default icon selected">
                 <img id="shape_2_img" style="width: 50px;height: 41px" class="img "
-                     src="../images/qrcode/u18.svg"/>
+                     src="{% static '/images/qrcode/u18.svg' %}"/>
                 <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
                     <p></p>
                 </div>
@@ -164,7 +165,7 @@
             <!-- Unnamed (形状) -->
             <div id="shape_2" style="left: 374px;top: 417px;width: 50px;height: 50px"
                  class="ax_default icon selected">
-                <img id="shape_2_img" style="width: 50px" class="img " src="../images/qrcode/u19.svg"/>
+                <img id="shape_2_img" style="width: 50px" class="img " src="{% static '/images/qrcode/u19.svg' %}"/>
                 <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
                     <p></p>
                 </div>
@@ -221,7 +222,7 @@
 
             <!-- Unnamed (下拉框) -->
             <div id="droplet_0" class="ax_default droplist selected">
-                <img id="droplet_0_img" class="img " src="../images/qrcode/u26.svg"/>
+                <img id="droplet_0_img" class="img " src="{% static '/images/qrcode/u26.svg' %}"/>
                 <select id="droplet_0_input" class="droplet_input">
                     <option class="droplet_input_option" selected value="未选择">未选择</option>
                     <option class="droplet_input_option" value="蓝牙1">蓝牙1</option>
@@ -248,7 +249,7 @@
             <!-- Unnamed (形状) -->
             <div id="shape_2" style="left: 374px;top: 514px;width: 50px;height: 50px"
                  class="ax_default icon selected">
-                <img id="shape_2_img" style="width: 50px" class="img " src="../images/main/u70.svg"/>
+                <img id="shape_2_img" style="width: 50px" class="img " src="{% static '/images/main/u70.svg' %}"/>
                 <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
                     <p></p>
                 </div>
@@ -265,18 +266,17 @@
 
             <!-- Logout (形状) -->
             <div id="shape_2" style="left: 713px;top: 608px;height: 37px;width: 37px" class="ax_default icon selected">
-                <img id="shape_2_img" style="height: 37px;width: 37px" class="img" src="../images/main/u72.svg"/>
+                <img id="shape_2_img" style="height: 37px;width: 37px" class="img"
+                     src="{% static '/images/main/u72.svg' %}"/>
             </div>
 
 
             <!-- Logout (热区) -->
             <div id="transparent_0" style="left: 695px;top: 595px;width: 73px;height: 57px" class="ax_default logout">
             </div>
-            <script type="text/javascript" src="../js/logout.js"></script>
+            <script type="text/javascript" src="{% static '/js/logout.js' %}"></script>
         </div>
     </div>
-</div>
-</div>
 </div>
 </body>
 </html>

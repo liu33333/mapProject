@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-    <link href="../css/styles.css" type="text/css" rel="stylesheet">
-    <link href="../css/page.css" type="text/css" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'css/page.css' %}" type="text/css" rel="stylesheet">
     <title>qrcode</title>
 </head>
 <body style="overflow: hidden">
@@ -44,13 +45,13 @@
 
     <!-- Refresh button (形状) -->
     <div id="shape_0" class="ax_default icon">
-        <img id="shape_0_img" style="width: 40px;height: 40px" class="img " src="../images/qrcode/u7.svg"/>
+        <img id="shape_0_img" style="width: 40px;height: 40px" class="img " src="{% static '/images/qrcode/u7.svg'%}"/>
     </div>
 </div>
 
 <!-- QR Code (图片) -->
 <div id="qrcode" class="ax_default _图片">
-    <img id="qrcode_img" class="img " src="../images/qrcode/u8.png"/>
+    <img id="qrcode_img" class="img " src="{% static '/images/qrcode/u8.png'%}"/>
 </div>
 
 <!-- Notice info (矩形) -->
@@ -61,7 +62,7 @@
 
 <!-- Logo (图片) -->
 <div id="image_0" class="ax_default _图片">
-    <img id="image_0_img" class="img " src="../images/index/u1.png"/>
+    <img id="image_0_img" class="img " src="{% static '/images/index/u1.png'%}"/>
 </div>
 
 <!-- Offline location (矩形) -->
@@ -74,7 +75,7 @@
 
 <!-- Setting (形状) -->
 <div id="shape_1" class="ax_default icon">
-    <img id="shape_1_img" class="img " src="../images/qrcode/u12.svg"/>
+    <img id="shape_1_img" class="img " src="{% static '/images/qrcode/u12.svg'%}"/>
 </div>
 
 <!-- Unnamed (热区) -->
@@ -116,7 +117,7 @@
 
             <!-- Unnamed (形状) -->
             <div id="shape_2" class="ax_default icon selected">
-                <img id="shape_2_img" class="img " src="../images/qrcode/u16.svg"/>
+                <img id="shape_2_img" class="img " src="{% static '/images/qrcode/u16.svg' %}"/>
                 <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
                     <p></p>
                 </div>
@@ -125,7 +126,7 @@
             <!-- Unnamed (形状) -->
             <div id="shape_2" style="height: 43px;width: 50px;top: 139px;left: 374px"
                  class="ax_default icon selected">
-                <img id="shape_2_img" style="width: 50px;height: 43px" class="img " src="../images/qrcode/u17.svg"/>
+                <img id="shape_2_img" style="width: 50px;height: 43px" class="img " src="{% static '/images/qrcode/u17.svg'%}"/>
                 <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
                     <p></p>
                 </div>
@@ -134,7 +135,7 @@
             <!-- Unnamed (形状) -->
             <div id="shape_2" style="height: 41px;width: 50px;top: 324px;left: 374px"
                  class="ax_default icon selected">
-                <img id="shape_2_img" style="width: 50px;height: 41px" class="img " src="../images/qrcode/u18.svg"/>
+                <img id="shape_2_img" style="width: 50px;height: 41px" class="img " src="{% static '/images/qrcode/u18.svg'%}"/>
                 <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
                     <p></p>
                 </div>
@@ -143,7 +144,7 @@
             <!-- Unnamed (形状) -->
             <div id="shape_2" style="left: 374px;top: 417px;width: 50px;height: 50px"
                  class="ax_default icon selected">
-                <img id="shape_2_img" style="width: 50px" class="img " src="../images/qrcode/u19.svg"/>
+                <img id="shape_2_img" style="width: 50px" class="img " src="{% static '/images/qrcode/u19.svg'%}"/>
                 <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
                     <p></p>
                 </div>
@@ -199,7 +200,7 @@
 
             <!-- Unnamed (下拉框) -->
             <div id="droplet_0" class="ax_default droplist selected">
-                <img id="droplet_0_img" class="img " src="../images/qrcode/u26.svg"/>
+                <img id="droplet_0_img" class="img " src="{% static '/images/qrcode/u26.svg'%}"/>
                 <select id="droplet_0_input" class="droplet_input">
                     <option class="droplet_input_option" selected value="未选择">未选择</option>
                     <option class="droplet_input_option" value="蓝牙1">蓝牙1</option>
