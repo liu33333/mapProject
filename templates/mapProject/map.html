@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
     <link href="{% static 'css/styles.css' %}" type="text/css" rel="stylesheet">
     <link href="{% static 'css/page.css' %}" type="text/css" rel="stylesheet">
+    <script type="text/javascript"
+            src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=cj7497UPX8E7coVn0vSvPTE7BwT5Mdky"></script>
     <title>map</title>
 </head>
 <body>
@@ -45,13 +47,11 @@
 
     <!-- Home (形状) -->
     <div id="shape_0" class="ax_default icon">
-        <img id="shape_0_img" class="img " src="{% static '/images/main/u38.svg' %}" onclick="home()"/>
+        <img id="shape_0_img" class="img " src="{% static '/images/main/u38.svg' %}" onclick="goHome()"/>
     </div>
-    <script>
-        function home() {
-            window.location.replace("main.html");
-        }
-    </script>
+    <script>function goHome() {
+        location.replace("{% url 'main'%}");
+    }</script>
 
     <!-- Setting (形状) -->
     <div id="shape_1" class="ax_default icon">
@@ -260,7 +260,6 @@
                 <div id="rectangle_3_div" class="selected"></div>
                 <div id="rectangle_3_text" class="text ">
                     <p><span>用户123</span></p>
-                    <p><span><br></span></p>
                 </div>
             </div>
 
@@ -272,10 +271,34 @@
 
 
             <!-- Logout (热区) -->
-            <div id="transparent_0" style="left: 695px;top: 595px;width: 73px;height: 57px" class="ax_default logout">
+            <div id="transparent_0" style="left: 695px;top: 595px;width: 73px;height: 57px" class="ax_default logout"
+                 onclick="goQRcode()">
             </div>
-            <script type="text/javascript" src="{% static '/js/logout.js' %}"></script>
+            <script>function goQRcode() {
+                window.location.href = "{% url 'qrcode' %}";
+            }</script>
         </div>
+    </div>
+    <div class="ax_default"
+         style="border-width:0px;position:absolute;left:0px;top:0px;width:1080px;height:722px;display:flex;">
+        <div id="undermap_div" style="position: absolute;left: 0px;top: 0px;width: 1080px;height: 722px;background: inherit;background-color: rgba(82, 82, 82, 1);box-sizing: border-box;border-width: 1px;border-style: solid;border-color: rgba(121, 121, 121, 1);border-radius: 0px;-moz-box-shadow: none;-webkit-box-shadow: none;box-shadow: none;"></div>
+        <script type="text/javascript">
+            var GPS_X = 112.92826300;
+            var GPS_Y = 28.16302700;
+            var map = new BMapGL.Map("undermap_div");
+            var myLocPoint = new BMapGL.Point(GPS_X, GPS_Y);
+            var marker=new BMapGL.Marker(myLocPoint);//创建位置标记
+            map.addOverlay(marker);
+            map.centerAndZoom(myLocPoint, 17);
+            map.enableScrollWheelZoom(true);
+
+            var scaleCtrl = new BMapGL.ScaleControl({anchor: BMAP_ANCHOR_BOTTOM_LEFT});
+            map.addControl(scaleCtrl);
+            var zoomCtrl = new BMapGL.ZoomControl({anchor: BMAP_ANCHOR_TOP_LEFT});
+            map.addControl(zoomCtrl);
+            var copyRightCtrl = new BMapGL.ScaleControl({anchor: BMAP_ANCHOR_BOTTOM_RIGHT});
+            map.addControl(copyRightCtrl);
+        </script>
     </div>
 </div>
 </body>

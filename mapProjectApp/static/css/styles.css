@@ -644,4 +644,20 @@ body {
     width: 100%;
 }
 
-
+/*#undermap_div {*/
+/*    position: absolute;*/
+/*    left: 0px;*/
+/*    top: 0px;*/
+/*    width: 1080px;*/
+/*    height: 722px;*/
+/*    background: inherit;*/
+/*    background-color: rgba(82, 82, 82, 1);*/
+/*    box-sizing: border-box;*/
+/*    border-width: 1px;*/
+/*    border-style: solid;*/
+/*    border-color: rgba(121, 121, 121, 1);*/
+/*    border-radius: 0px;*/
+/*    -moz-box-shadow: none;*/
+/*    -webkit-box-shadow: none;*/
+/*    box-shadow: none;*/
+/*}*/

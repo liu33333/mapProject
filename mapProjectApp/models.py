@@ -32,8 +32,8 @@ class Mission(models.Model):
     origin = models.ForeignKey(Location, on_delete=models.CASCADE, related_name='origin_missions')
     # 目的地（一个名字和一个经纬度数对，数对可以缺省）
     destination = models.ForeignKey(Location, on_delete=models.CASCADE, related_name='destination_missions')
-    # 路线path（一个列表，可以为空，该列表由类似于出发地的数据结构组成）
-    path = models.ManyToManyField(Location)
+    # 路线path（一个列表，储存所有途经点的坐标，可以为空，该列表由类似于出发地的数据结构组成）
+    path = models.ManyToManyField(Location, related_name='path_missions')
     # 出发时间（一个时刻，精确到分钟）
     departure_time = models.DateTimeField()
     # 预计到达时间（结构同上）
@@ -53,4 +53,6 @@ class Mission(models.Model):
         ('已取消', '已取消'),
     ]
     status = models.CharField(max_length=10, choices=STATUS_CHOICES)
-print('done')
+# 自动在数据库中创建表格，分别为mapProjectApp_employee、mapProjectApp_location、mapProjectApp_mission和mapProjectApp_mission_path
+# 其中mapProjectApp_mission_path是一个中间表，用于储存Mission和Location之间的多对多关系，其余三个表格分别储存Employee、Location和Mission的信息
+# 含有两个外键，分别为origin和destination，指向Location表格，表示出发地和目的地

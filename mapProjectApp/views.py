@@ -18,7 +18,7 @@ print('mapProjectApp.views.py will load')
 
 def get_id():
     config = configparser.ConfigParser()
-    config.read(r'F:\code\Python\mapProject\mapProjectApp\carid.ini')
+    config.read(r'mapProjectApp/carid.ini')
     id_value = config.get('global', 'id')
     return id_value
 
@@ -36,7 +36,6 @@ userinfomation = {
 
 
 def index(request):
-
     return render(request, 'mapProject/index.html')
 
 
@@ -48,30 +47,38 @@ def qrcode(request):
     qrimg = qr.QRCode(border=0)
     qrimg.add_data(json.dumps(data))
     qrimg.make(fit=True)
-    qrimg = qrimg.make_image(fill_color=(255, 255, 255), back_color=(35,61,91))
+    qrimg = qrimg.make_image(fill_color=(255, 255, 255), back_color=(35, 61, 91))
     qrimg.save('mapProjectApp/static/images/qrcode/test1.png')
     return render(request, 'mapProject/qrcode.html', {'qrimg': qrimg})
 
 
+# 扫码后等待服务器返回身份数据，接收到之后从数据库中匹配信息并保存在userinfomation中
+
+def check(request,id):
+    pass
 
 def main(request):
     return render(request, 'mapProject/main.html', userinfomation)
 
 
 def map(request):
-    return render(request, 'mapProject/map.html')
+    return render(request, 'mapProject/map.html', userinfomation)
 
 
 def mission(request):
-    return render(request, 'mapProject/mission.html')
+    return render(request, 'mapProject/mission.html', userinfomation)
 
 
 def notice(request):
-    return render(request, 'mapProject/notice.html')
+    return render(request, 'mapProject/notice.html', userinfomation)
 
 
 def userinfo(request):
     return render(request, 'mapProject/userinfo.html')
+
+
+def rederict(request, name):
+    return render(request, 'mapProject/' + name + '.html', userinfomation)
 
 
 print('mapProjectApp.views.py is loaded')

@@ -45,13 +45,11 @@
 
     <!-- Home (形状) -->
     <div id="shape_0" class="ax_default icon">
-        <img id="shape_0_img" class="img " src="{% static '/images/main/u38.svg' %}" onclick="home()"/>
+        <img id="shape_0_img" class="img " src="{% static '/images/main/u38.svg' %}" onclick="goHome()"/>
     </div>
-    <script>
-        function home() {
-            window.location.replace("main.html");
-        }
-    </script>
+    <script>function goHome() {
+        location.replace("{% url 'main'%}");
+    }</script>
 
     <!-- Setting (形状) -->
     <div id="shape_1" class="ax_default icon">
@@ -272,9 +270,12 @@
 
 
             <!-- Logout (热区) -->
-            <div id="transparent_0" style="left: 695px;top: 595px;width: 73px;height: 57px" class="ax_default logout">
+            <div id="transparent_0" style="left: 695px;top: 595px;width: 73px;height: 57px" class="ax_default logout"
+                 onclick="goQRcode()">
             </div>
-            <script type="text/javascript" src="{% static '/js/logout.js' %}"></script>
+            <script>function goQRcode() {
+                window.location.href = "{% url 'qrcode' %}";
+            }</script>
         </div>
     </div>
 </div>
