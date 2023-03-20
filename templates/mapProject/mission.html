@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
     <link href="{% static 'css/styles.css' %}" type="text/css" rel="stylesheet">
     <link href="{% static 'css/page.css' %}" type="text/css" rel="stylesheet">
+    <script type="text/javascript"
+            src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=cj7497UPX8E7coVn0vSvPTE7BwT5Mdky"></script>
     <title>mission</title>
 </head>
 <body>
@@ -115,6 +117,106 @@
             console.log(time);
         }
     </script>
+
+    <div id="undernotice" class="ax_default"
+         style="border-width:0px;position:absolute;left:97px;top:66px;width:886px;height:598px;display:flex;">
+        <div id="undernotice_div"
+             style="position:absolute;left:0px;top:0px;width:886px;height:598px;background:inherit;background-color:rgba(0, 0, 0, 0.4196078431372549);box-sizing:border-box;border-width:1px;border-style:solid;border-color:rgba(121, 121, 121, 1);border-radius:24px;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none;">
+
+        </div>
+    </div>
+    <div id="undermap" class="ax_default box_1" data-label="undermap"
+         style="border-width:0px;position:absolute;left:446px;top:66px;width:537px;height:598px;display:flex;">
+        <div id="undermap_div"
+             style="position:absolute; left:0px; top:0px;width:537px;height:598px;background:inherit;background-color:rgba(255, 255, 255, 1); box-sizing:border-box;border-width:1px;border-style:solid;border-color:rgba(121, 121, 121, 1);border-radius:24px;border-top-left-radius:0px;border-bottom-left-radius:0px;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none;">
+            <script>
+                var map = new BMapGL.Map("undermap_div");
+                var scaleCtrl = new BMapGL.ScaleControl({anchor: BMAP_ANCHOR_BOTTOM_LEFT});
+                map.addControl(scaleCtrl);
+                var zoomCtrl = new BMapGL.ZoomControl({anchor: BMAP_ANCHOR_TOP_LEFT});
+                map.addControl(zoomCtrl);
+                map.enableScrollWheelZoom(true);
+                var loc = (112.942056, 28.149636);
+                map.centerAndZoom(new BMapGL.Point(loc), 17);
+                var marker = new BMapGL.Marker(new BMapGL.Point(loc));
+            </script>
+        </div>
+    </div>
+    <div id="underinfo" class="ax_default box_1" data-label="underinfo"
+         style="border-width:0px;position:absolute;left:97px; top:66px;width:349px; height:598px;display:flex;">
+        <div id="underinfo_div"
+             style="position:absolute;left:0px;top:0px;width:349px;height:598px;background:inherit;background-color:rgba(0, 0, 0, 0);box-sizing:border-box;border-width:1px;border-style:solid;border-color:rgba(121, 121, 121, 1); border-radius:24px;border-top-right-radius:0px;border-bottom-right-radius:0px;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none;"></div>
+    </div>
+
+    <div id="mission" class="ax_default mission">
+        <div id="mission_div" class="">
+            <p><span style="color: white ;font-size: 21px;position: absolute;top: 42px;left:74px ;text-align: center" >No mission in database</span></p>
+        </div>
+    </div>
+
+    <!-- Unnamed (矩形) -->
+    <div id="mission" class="ax_default mission" style="top: 197px">
+        <div id="mission_div" class="">
+            <p><span style="color: white ;font-size: 21px;position: absolute;top: 42px;left:74px ;text-align: center" >No mission in database</span></p>
+        </div>
+    </div>
+
+    <!-- Unnamed (矩形) -->
+    <div id="mission" class="ax_default mission" style="top: 314px">
+        <div id="mission_div" class="">
+            <p><span style="color: white ;font-size: 21px;position: absolute;top: 42px;left:74px ;text-align: center" >No mission in database</span></p>
+        </div>
+    </div>
+
+    <!-- Unnamed (矩形) -->
+    <div id="mission" class="ax_default mission" style="top: 431px">
+        <div id="mission_div" class="">
+            <p><span style="color: white ;font-size: 21px;position: absolute;top: 42px;left:74px ;text-align: center" >No mission in database</span></p>
+        </div>
+    </div>
+
+    <!-- Unnamed (矩形) -->
+    <div id="mission" class="ax_default mission" style="top: 548px">
+        <div id="mission_div" class="">
+            <p><span style="color: white ;font-size: 21px;position: absolute;top: 42px;left:74px ;text-align: center" >No mission in database</span></p>
+        </div>
+    </div>
+    <script>
+        function showmap(origin, destination) {
+            var map = new BMapGL.Map("undermap_div");
+            map.centerAndZoom(new BMapGL.Point(origin), 10);
+            var driving = new BMapGL.DrivingRoute(map, {renderOptions: {map: map, autoViewport: true}});
+            driving.search(new BMapGL.Point(origin), new BMapGL.Point(destination));
+        }
+
+
+        {{ unfinished_missions}}. length;
+        if (num > 5) num = 5;
+        for (var i = 0; i < num; i++) {
+            var card = document.getElementsByClassName("mission")[i];
+            var p = document.createElement("p");
+            p.innerHTML = {{ unfinished_missions }}[i].origin_id + "-" + {{ unfinished_missions }}[i].destination_id;
+            card.appendChild(p);
+            card.onclick = function () {
+                ori_name_id = {{ unfinished_missions }}[i].origin_id
+                des_name_id = {{ unfinished_missions }}[i].destination_id
+                ori_name = {{ loc }}[ori_name_id - 1][0]
+                des_name = {{ loc }}[des_name_id - 1][0]
+                console.log("ori_name", ori_name)
+                console.log("des_name", des_name)
+                origin = ({{ loc }}[ori_name_id - 1][1], {{ loc }}[ori_name_id - 1][2])
+                destination = ({{ loc }}[des_name_id - 1][1], {{ loc }}[des_name_id - 1][2])
+                showmap(origin, destination);
+            }
+        }
+        if (num < 5) {
+            for (var i = num; i < 5; i++) {
+                var card = document.getElementsByClassName("mission")[i];
+                card.style.display = "none";
+            }
+        }
+    </script>
+
     <!-- Unnamed (组合) -->
     <div id="combine_0" class="ax_default" data-left="0" data-top="0" data-width="0" data-height="0"
          layer-opacity="1">
@@ -127,17 +229,11 @@
             <!-- Unnamed (矩形) -->
             <div id="rectangle_2" class="ax_default box_1 selected">
                 <div id="rectangle_2_div" class="selected"></div>
-                <div id="rectangle_2_text" class="text " style="display:none; visibility: hidden">
-                    <p></p>
-                </div>
             </div>
 
             <!-- Unnamed (形状) -->
             <div id="shape_2" class="ax_default icon selected">
                 <img id="shape_2_img" class="img " src="{% static '/images/qrcode/u16.svg' %}"/>
-                <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
-                    <p></p>
-                </div>
             </div>
 
             <!-- Unnamed (形状) -->
@@ -145,9 +241,6 @@
                  class="ax_default icon selected">
                 <img id="shape_2_img" style="width: 50px;height: 43px" class="img "
                      src="{% static '/images/qrcode/u17.svg' %}"/>
-                <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
-                    <p></p>
-                </div>
             </div>
 
             <!-- Unnamed (形状) -->
@@ -155,18 +248,12 @@
                  class="ax_default icon selected">
                 <img id="shape_2_img" style="width: 50px;height: 41px" class="img "
                      src="{% static '/images/qrcode/u18.svg' %}"/>
-                <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
-                    <p></p>
-                </div>
             </div>
 
             <!-- Unnamed (形状) -->
             <div id="shape_2" style="left: 374px;top: 417px;width: 50px;height: 50px"
                  class="ax_default icon selected">
                 <img id="shape_2_img" style="width: 50px" class="img " src="{% static '/images/qrcode/u19.svg' %}"/>
-                <div id="shape_2_text" class="text " style="display:none; visibility: hidden">
-                    <p></p>
-                </div>
             </div>
 
             <!-- Unnamed (矩形) -->
@@ -232,7 +319,7 @@
             <div id="rectangle_3" style="left: 554px;top: 345px" class="ax_default _段落 selected">
                 <div id="rectangle_3_div" class="selected"></div>
                 <div id="rectangle_3_text" class="text ">
-                    <p><span>JF22-001</span></p>
+                    <p><span>{{ userinformation.carid }}</span></p>
                 </div>
             </div>
 
@@ -257,7 +344,7 @@
             <div id="rectangle_3" style="left: 554px;top: 538px;" class="ax_default _段落 selected">
                 <div id="rectangle_3_div" class="selected"></div>
                 <div id="rectangle_3_text" class="text ">
-                    <p><span>用户123</span></p>
+                    <p><span>{{ userinformation.name }}</span></p>
                     <p><span><br></span></p>
                 </div>
             </div>

@@ -5,11 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    {#    <meta http-equiv="Access-Control-Allow-Origin" content="*">#}
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
     <link href="{% static 'css/styles.css' %}" type="text/css" rel="stylesheet">
     <link href="{% static 'css/page.css' %}" type="text/css" rel="stylesheet">
     <script type="text/javascript"
             src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=cj7497UPX8E7coVn0vSvPTE7BwT5Mdky"></script>
+
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
     <title>map</title>
 </head>
 <body>
@@ -234,7 +237,7 @@
             <div id="rectangle_3" style="left: 554px;top: 345px" class="ax_default _段落 selected">
                 <div id="rectangle_3_div" class="selected"></div>
                 <div id="rectangle_3_text" class="text ">
-                    <p><span>JF22-001</span></p>
+                    <p><span>{{ carid }}</span></p>
                 </div>
             </div>
 
@@ -259,7 +262,7 @@
             <div id="rectangle_3" style="left: 554px;top: 538px;" class="ax_default _段落 selected">
                 <div id="rectangle_3_div" class="selected"></div>
                 <div id="rectangle_3_text" class="text ">
-                    <p><span>用户123</span></p>
+                    <p><span>{{ name }}</span></p>
                 </div>
             </div>
 
@@ -281,23 +284,61 @@
     </div>
     <div class="ax_default"
          style="border-width:0px;position:absolute;left:0px;top:0px;width:1080px;height:722px;display:flex;">
-        <div id="undermap_div" style="position: absolute;left: 0px;top: 0px;width: 1080px;height: 722px;background: inherit;background-color: rgba(82, 82, 82, 1);box-sizing: border-box;border-width: 1px;border-style: solid;border-color: rgba(121, 121, 121, 1);border-radius: 0px;-moz-box-shadow: none;-webkit-box-shadow: none;box-shadow: none;"></div>
+        <div id="undermap_div"
+             style="position: absolute;left: 0px;top: 0px;width: 1080px;height: 722px;background: inherit;background-color: rgba(82, 82, 82, 1);box-sizing: border-box;border-width: 1px;border-style: solid;border-color: rgba(121, 121, 121, 1);border-radius: 0px;-moz-box-shadow: none;-webkit-box-shadow: none;box-shadow: none;"></div>
         <script type="text/javascript">
-            var GPS_X = 112.92826300;
-            var GPS_Y = 28.16302700;
             var map = new BMapGL.Map("undermap_div");
-            var myLocPoint = new BMapGL.Point(GPS_X, GPS_Y);
-            var marker=new BMapGL.Marker(myLocPoint);//创建位置标记
-            map.addOverlay(marker);
-            map.centerAndZoom(myLocPoint, 17);
-            map.enableScrollWheelZoom(true);
-
             var scaleCtrl = new BMapGL.ScaleControl({anchor: BMAP_ANCHOR_BOTTOM_LEFT});
             map.addControl(scaleCtrl);
             var zoomCtrl = new BMapGL.ZoomControl({anchor: BMAP_ANCHOR_TOP_LEFT});
             map.addControl(zoomCtrl);
-            var copyRightCtrl = new BMapGL.ScaleControl({anchor: BMAP_ANCHOR_BOTTOM_RIGHT});
-            map.addControl(copyRightCtrl);
+            map.enableScrollWheelZoom(true);
+            var loc=(112.942056,28.149636);
+            map.centerAndZoom(new BMapGL.Point(loc), 17);
+            var counter = false;
+            var marker = new BMapGL.Marker(new BMapGL.Point(loc));
+            $(document).ready(function () {
+                function showData() {
+                    $.ajax({
+                        url: "/get_json_data",
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                            console.log("success：", data);
+                            var GPS_X = data.result[0].x;
+                            var GPS_Y = data.result[0].y;
+                            var url = "https://api.map.baidu.com/geoconv/v1/?from=3&to=5&ak=cj7497UPX8E7coVn0vSvPTE7BwT5Mdky&coords=" + String(GPS_X) + "," + String(GPS_Y);
+                            $.ajax({
+                                url: url,
+                                type: 'GET',
+                                dataType: 'JSONP',
+                                success: function (data) {
+                                    {#console.log(data);#}
+                                    {#console.log(data.result[0].x);#}
+                                    {#console.log(data.result[0].y);#}
+                                    var bd_x = data.result[0].x;
+                                    var bd_y = data.result[0].y;
+                                    var myLocPoint = new BMapGL.Point(bd_x, bd_y);
+                                    console.log("myLocPoint", myLocPoint);
+                                    map.clearOverlays();
+                                    marker = new BMapGL.Marker(myLocPoint);//创建位置标记
+                                    map.addOverlay(marker);
+                                    map.centerAndZoom(myLocPoint, map.getZoom());
+                                    if (!counter) {
+                                        map.centerAndZoom(myLocPoint, 17);
+                                        counter = true
+                                    }
+                                }
+                            });
+                        }
+                    })
+                }
+
+                showData();
+                setInterval(showData, 3000)
+            })
+
+
         </script>
     </div>
 </div>

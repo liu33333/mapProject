@@ -55,7 +55,7 @@
 
 <!-- QR Code (图片) -->
 <div id="qrcode" class="ax_default _图片">
-    <img id="qrcode_img" class="img " src="{% static 'images/qrcode/test1.png' %}" alt="QRCode"/>
+    <img id="qrcode_img" class="img " src="{% static 'images/qrcode/qrcode.png' %}" alt="QRCode"/>
 </div>
 
 <!-- Notice info (矩形) -->
@@ -219,5 +219,25 @@
         </div>
     </div>
 </div>
+<script>
+    var url="http://82.157.251.202:81/module/api/do2.php";
+    $.ajax({
+        url: url,
+        type:'get',
+        dataType:'JSONP',
+        success:function (data){
+            //解析出data中的id并调用视图函数check(request,id)
+            var id=data.id;
+            $.ajax({
+                url:"/qrcode/check/",
+                type:"post",
+                data:{"id":id},
+                success:function(data){
+                    console.log(data)
+                }
+            })
+        }
+    })
+</script>
 </body>
 </html>

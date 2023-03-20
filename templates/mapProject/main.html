@@ -53,7 +53,7 @@
         <!-- Home (形状) -->
         <div id="shape_0" class="ax_default icon">
             <img id="shape_0_img" class="img " src="{% static 'images/main/u38.svg' %}" alt="home" onclick="goHome()"/>
-            <script>function goHome() {
+            <script id="sc1">function goHome() {
                 location.replace("{% url 'main'%}");
             }</script>
 
@@ -95,13 +95,12 @@
         </div>
 
         <!-- 时间 (矩形) -->
-        <div id="rectangle_1" style="left: 637px;top: 739px;height: 60px;width: 237px" class="ax_default _段落">
+        <div id="rectangle_1" style="left: 637px;top: 739px;height: 60px;width: 237px" class="ax_default">
             <div id="rectangle_1_div" class=""></div>
             <div id="rectangle_1_text" class="text ">
                 <p><span id="time"></span></p>
             </div>
-        </div>
-        <script>
+            <script>
             setInterval(time, 1000);
 
             function time() {
@@ -125,6 +124,8 @@
                 console.log(time);
             }
         </script>
+        </div>
+
         {# 大按钮 #}
         <!-- Unnamed (矩形) -->
         <div id="button_0" class="ax_default button">
